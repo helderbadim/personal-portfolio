@@ -1,0 +1,21 @@
+<section class="skills section-shell" appReveal>
+  <p class="section-label">Toolkit</p>
+  <div class="skills-heading">
+    <h2>The tools behind<br><em>the work.</em></h2>
+    <p>From building interfaces to testing and delivery, these are the tools I rely on to turn ideas into thoughtful,
+      reliable products.</p>
+  </div>
+  @for (group of skillGroups; track group.title) {
+  <div class="skill-category">
+    <div class="skill-category-intro">
+      <h3>{{ group.title }}</h3>
+      <p>{{ group.description }}</p>
+    </div>
+    <div class="skill-cloud">
+      @for (skill of group.skills; track skill) {
+      <span>{{ skill }}</span>
+      }
+    </div>
+  </div>
+  }
+</section>

@@ -1,0 +1,9 @@
+<section id="experience" class="experience section-shell">
+  <div class="section-heading" appReveal><p>Experience</p><h2>A career change,<br><em>driven by curiosity.</em></h2></div>
+  <p class="experience-note" appReveal>After years in biotechnology research, I chose to move into software engineering—bringing the same analytical thinking, care for detail, and curiosity into every product I help build.</p>
+  <div class="timeline">
+    @for (role of experiences; track role.company; let index = $index) {
+      <article class="role" appReveal><div class="role-date">{{ role.date }}</div><div><h3>{{ role.title }}</h3><h4>{{ role.company }}</h4><p>{{ role.description }}</p></div><span class="role-stage">{{ role.stage }}</span></article>
+    }
+  </div>
+</section>
