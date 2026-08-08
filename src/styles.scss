@@ -40,6 +40,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: clip;
 }
 body {
   margin: 0;
@@ -52,6 +53,9 @@ body {
     color 0.4s;
 }
 body.project-dialog-open {
+  overflow: hidden;
+}
+body.mobile-menu-open {
   overflow: hidden;
 }
 a {
@@ -103,8 +107,17 @@ em {
   color: var(--muted);
 }
 @media (max-width: 700px) {
+  :root {
+    --font-size-body: 0.9375rem;
+    --font-size-lead: 1rem;
+    --font-size-heading-sm: 1.55rem;
+    --font-size-heading-md: 2rem;
+    --font-size-section-title: clamp(2.65rem, 13vw, 4rem);
+    --font-size-about-title: clamp(2.65rem, 13vw, 4rem);
+    --font-size-contact-title: clamp(2.8rem, 14vw, 4.4rem);
+  }
   .section-shell {
-    width: min(100% - 32px, 1240px);
+    width: min(100% - 40px, 1240px);
   }
 }
 @media (prefers-reduced-motion: reduce) {

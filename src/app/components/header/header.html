@@ -1,6 +1,6 @@
-<header class="site-header">
+<header class="site-header" [class.menu-open]="menuOpen()">
   <a class="brand" href="#top" aria-label="Hélder Badim, home"><span>HB</span></a>
-  <nav [class.open]="menuOpen()" aria-label="Main navigation">
+  <nav id="main-navigation" [class.open]="menuOpen()" aria-label="Main navigation">
     <a href="#work" [class.active]="activeSection() === 'work'"
       [attr.aria-current]="activeSection() === 'work' ? 'location' : null"
       (click)="activateSection('work')">Projects</a>
@@ -15,7 +15,8 @@
       [attr.aria-label]="theme.isDark() ? 'Use light theme' : 'Use dark theme'"
       [attr.title]="theme.isDark() ? 'Use light theme' : 'Use dark theme'">{{ theme.isDark() ? '☼' : '◐' }}</button>
     <a class="contact-link" href="mailto:helderbadim@hotmail.com">Let’s talk <span>↗</span></a>
-    <button class="menu-toggle" (click)="menuOpen.set(!menuOpen())" aria-label="Toggle menu">{{ menuOpen() ? '×' : '☰'
+    <button class="menu-toggle" (click)="toggleMenu()" aria-label="Toggle menu"
+      aria-controls="main-navigation" [attr.aria-expanded]="menuOpen()">{{ menuOpen() ? '×' : '☰'
       }}</button>
   </div>
 </header>

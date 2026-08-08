@@ -3,8 +3,11 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Directive({ selector: '[appReveal]' })
 export class RevealDirective implements AfterViewInit, OnDestroy {
+  // Dependency injection for the ElementRef and PLATFORM_ID tokens
   private readonly element = inject(ElementRef<HTMLElement>);
   private readonly platformId = inject(PLATFORM_ID);
+
+  /** Intersection Observer instance */
   private observer?: IntersectionObserver;
 
   ngAfterViewInit(): void {

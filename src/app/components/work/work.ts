@@ -19,8 +19,10 @@ export class WorkComponent implements OnDestroy {
   /** Signal to track the currently selected project */
   protected readonly selectedProject = signal<Project | null>(null);
 
+  /** Track the previously focused element before opening the project dialog */
   private previousFocus?: HTMLElement;
 
+  /** Open the project dialog and focus the close button */
   protected openProject(project: Project): void {
     this.previousFocus =
       document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
@@ -29,6 +31,7 @@ export class WorkComponent implements OnDestroy {
     setTimeout(() => this.closeButton?.nativeElement.focus());
   }
 
+  /** Close the project dialog and return focus to the previously focused element */
   protected closeProject(): void {
     document.body.classList.remove('project-dialog-open');
     this.selectedProject.set(null);
@@ -39,11 +42,13 @@ export class WorkComponent implements OnDestroy {
     document.body.classList.remove('project-dialog-open');
   }
 
+  /** Close the project dialog when the escape key is pressed */
   @HostListener('document:keydown.escape')
   protected closeProjectOnEscape(): void {
     if (this.selectedProject()) this.closeProject();
   }
 
+  /** Trap focus within the project dialog */
   protected trapDialogFocus(event: Event): void {
     if (!(event instanceof KeyboardEvent)) return;
 
