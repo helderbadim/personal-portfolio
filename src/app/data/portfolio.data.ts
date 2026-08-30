@@ -12,6 +12,7 @@ export interface Project {
   learned: readonly string[];
   liveUrl?: string;
   previewUrl: string;
+  mobilePreviewUrl: string;
   sourceUrl?: string;
   technologies: readonly string[];
   title: string;
@@ -33,6 +34,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['JavaScript', 'HTML', 'CSS'],
     liveUrl: 'https://helderbadim.github.io/Bankist-Webpage/',
     previewUrl: 'project-bankist.png',
+    mobilePreviewUrl: 'project-bankist-mobile.png',
     sourceUrl: 'https://github.com/helderbadim/Bankist-Webpage',
   },
   {
@@ -50,6 +52,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['JavaScript', 'HTML', 'CSS', 'Bootstrap'],
     liveUrl: 'https://helderbadim.github.io/Atlas_TravelAgency_Website/',
     previewUrl: 'project-atlas.png',
+    mobilePreviewUrl: 'project-atlas-mobile.png',
     sourceUrl: 'https://github.com/helderbadim/Atlas_TravelAgency_Website',
   },
   {
@@ -67,6 +70,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['JavaScript', 'Leaflet', 'HTML', 'CSS'],
     liveUrl: 'https://helderbadim.github.io/Mapty/',
     previewUrl: 'project-mapty.png',
+    mobilePreviewUrl: 'project-mapty-mobile.png',
     sourceUrl: 'https://github.com/helderbadim/Mapty',
   },
   {
@@ -84,6 +88,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['JavaScript', 'HTML', 'CSS'],
     liveUrl: 'https://helderbadim.github.io/Swipe-Project/',
     previewUrl: 'project-swipe.png',
+    mobilePreviewUrl: 'project-swipe-mobile.png',
     sourceUrl: 'https://github.com/helderbadim/Swipe-Project',
   },
 ];

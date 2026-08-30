@@ -52,8 +52,10 @@ body {
     background 0.4s,
     color 0.4s;
 }
+html.project-dialog-open,
 body.project-dialog-open {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 body.mobile-menu-open {
   overflow: hidden;

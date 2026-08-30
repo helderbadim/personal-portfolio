@@ -471,7 +471,7 @@ nav a:hover:after {
   background: var(--card);
   display: flex;
   flex-direction: column;
-  min-height: 340px;
+  min-height: 290px;
   overflow: hidden;
   padding: 36px;
   position: relative;
@@ -487,6 +487,7 @@ nav a:hover:after {
 .project-details {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 .project-dialog-backdrop {
   align-items: center;
@@ -507,6 +508,7 @@ nav a:hover:after {
   height: min(680px, calc(100vh - 48px));
   max-width: 1200px;
   overflow: hidden;
+  position: relative;
   width: 100%;
 }
 .project-dialog-close {
@@ -514,14 +516,22 @@ nav a:hover:after {
   border: 0;
   color: var(--muted);
   cursor: pointer;
-  display: block;
-  font-family: 'DM Mono';
-  font-size: var(--font-size-xs);
-  margin-bottom: 20px;
+  display: grid;
+  font-size: 2.25rem;
+  height: 52px;
+  margin: 0;
   padding: 0;
+  place-items: center;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: 52px;
+  z-index: 2;
 }
 .project-dialog-close:hover {
   color: var(--accent);
+  transform: scale(1.12);
 }
 .project-dialog-copy {
   padding: 38px 44px;
@@ -541,10 +551,12 @@ nav a:hover:after {
 .project-dialog-preview {
   background: var(--card);
 }
+.project-dialog-preview picture,
 .project-dialog-preview img {
   display: block;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  overflow: hidden;
   width: 100%;
 }
 .project-insights {
@@ -583,19 +595,24 @@ nav a:hover:after {
   position: absolute;
 }
 .project-dialog-technologies {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0;
   list-style: none;
-  margin: 28px 0;
+  margin: 14px 0 0;
   padding: 0;
 }
 .project-dialog-technologies li {
-  border: 1px solid var(--line);
-  border-radius: 100px;
+  color: var(--muted);
   font-family: 'DM Mono';
-  font-size: var(--font-size-2xs);
-  padding: 7px 12px;
+  font-size: var(--font-size-sm);
+  padding: 0;
+}
+.project-dialog-technologies li:not(:last-child)::after {
+  color: var(--accent);
+  content: '·';
+  margin: 0 10px;
 }
 .project-card h3 {
   font-size: var(--font-size-heading-sm);
@@ -603,12 +620,25 @@ nav a:hover:after {
   letter-spacing: -0.04em;
   margin: 8px 0 10px;
 }
-.project-card li {
-  border: 1px solid var(--line);
-  border-radius: 100px;
+.project-card-technologies {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+.project-card-technologies li {
+  color: var(--muted);
   font-family: 'DM Mono';
-  font-size: var(--font-size-2xs);
-  padding: 7px 12px;
+  font-size: var(--font-size-sm);
+  padding: 0;
+}
+.project-card-technologies li:not(:last-child)::after {
+  color: var(--accent);
+  content: '·';
+  margin: 0 10px;
 }
 .project-card p {
   color: var(--muted);
@@ -616,13 +646,18 @@ nav a:hover:after {
   margin: 0;
   max-width: 460px;
 }
-.project-card ul {
+.project-card-footer {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  list-style: none;
-  margin: 18px 0;
-  padding: 0;
+  gap: 18px 24px;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 28px;
+}
+.project-card-footer .project-links,
+.project-card-footer .project-open-hint {
+  margin-top: 0;
 }
 .project-links {
   display: flex;
@@ -639,6 +674,80 @@ nav a:hover:after {
 .project-links a span {
   color: var(--accent);
 }
+@media (min-width: 701px) {
+  .project-card-footer .project-links {
+    gap: 10px;
+  }
+  .project-card-footer .project-links a {
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent);
+    display: inline-flex;
+    gap: 8px;
+    font-size: var(--font-size-sm);
+    min-height: 40px;
+    padding: 0 14px;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .project-card-footer .project-links a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .project-card-footer .project-links a span {
+    font-size: var(--font-size-body);
+    transition: transform 0.2s ease;
+  }
+  .project-card-footer .project-links a:hover span {
+    color: inherit;
+    transform: translate(2px, -2px);
+  }
+  .project-dialog-copy {
+    border-left: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  }
+  .project-dialog-meta {
+    border-top: 1px solid var(--line);
+    margin-top: 28px;
+    padding-top: 22px;
+  }
+  .project-dialog-copy .project-links {
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+  .project-dialog-copy .project-links a {
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent);
+    display: inline-flex;
+    gap: 10px;
+    font-size: var(--font-size-sm);
+    min-height: 40px;
+    padding: 0 14px;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .project-dialog-copy .project-links a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .project-dialog-copy .project-links a span {
+    font-size: var(--font-size-body);
+    transition: transform 0.2s ease;
+  }
+  .project-dialog-copy .project-links a:hover span {
+    color: inherit;
+    transform: translate(2px, -2px);
+  }
+}
 .project-open-hint {
   align-items: center;
   color: var(--muted);
@@ -654,7 +763,7 @@ nav a:hover:after {
   font-size: var(--font-size-body);
   transition: transform 0.25s ease;
 }
-.project-card:hover .project-open-hint span {
+.project-open-hint:hover span {
   transform: translateX(4px);
 }
 .project-number {
@@ -1279,15 +1388,21 @@ footer {
   .project-card p {
     line-height: 1.6;
   }
-  .project-card ul {
-    margin: 22px 0 28px;
+  .project-card-technologies {
+    margin: 18px 0 0;
+  }
+  .project-card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 24px;
   }
   .project-links {
     flex-wrap: wrap;
     gap: 16px 22px;
   }
   .project-open-hint {
-    margin-top: 30px;
+    margin-top: 0;
   }
   .project-dialog-backdrop {
     align-items: center;
@@ -1307,6 +1422,7 @@ footer {
     aspect-ratio: 2 / 1;
   }
   .project-dialog-preview img {
+    object-fit: cover;
     opacity: 0.9;
   }
   .project-dialog-copy {
@@ -1373,11 +1489,11 @@ footer {
     padding-left: 10px;
   }
   .project-dialog-technologies {
-    gap: 8px;
+    gap: 0;
     margin: 0;
   }
   .project-dialog-technologies li {
-    padding: 5px 8px;
+    padding: 0;
   }
   .project-dialog-copy .project-links {
     gap: 20px;

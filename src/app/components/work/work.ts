@@ -27,6 +27,7 @@ export class WorkComponent implements OnDestroy {
     this.previousFocus =
       document.activeElement instanceof HTMLElement ? document.activeElement : undefined;
     document.body.classList.add('project-dialog-open');
+    document.documentElement.classList.add('project-dialog-open');
     this.selectedProject.set(project);
     setTimeout(() => this.closeButton?.nativeElement.focus());
   }
@@ -34,12 +35,14 @@ export class WorkComponent implements OnDestroy {
   /** Close the project dialog and return focus to the previously focused element */
   protected closeProject(): void {
     document.body.classList.remove('project-dialog-open');
+    document.documentElement.classList.remove('project-dialog-open');
     this.selectedProject.set(null);
     setTimeout(() => this.previousFocus?.focus());
   }
 
   ngOnDestroy(): void {
     document.body.classList.remove('project-dialog-open');
+    document.documentElement.classList.remove('project-dialog-open');
   }
 
   /** Close the project dialog when the escape key is pressed */
