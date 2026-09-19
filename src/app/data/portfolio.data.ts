@@ -20,6 +20,24 @@ export interface Project {
 
 export const PROJECTS: readonly Project[] = [
   {
+    title: 'Easy Task Management',
+    description:
+      'An Angular task-management dashboard for organising work by user, creating tasks, and keeping progress available between visits.',
+    built: [
+      'A user-focused dashboard that filters tasks by assignee and supports creating and completing work.',
+      'Reusable standalone Angular components with forms, modern control flow, and localStorage persistence.',
+    ],
+    learned: [
+      'How to organise feature state and shared behaviour through Angular services and component composition.',
+      'How Angular Forms, TypeScript, and browser storage work together to keep an interactive workflow reliable.',
+    ],
+    technologies: ['Angular', 'TypeScript', 'RxJS', 'CSS'],
+    liveUrl: 'https://helderbadim.github.io/Easy-Task-Management/',
+    previewUrl: 'project-easy-task.png',
+    mobilePreviewUrl: 'project-easy-task-mobile.png',
+    sourceUrl: 'https://github.com/helderbadim/Easy-Task-Management',
+  },
+  {
     title: 'Bankist Webpage',
     description:
       'A responsive banking landing page that explores layout, motion, and interactive browser behaviour.',
