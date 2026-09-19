@@ -559,6 +559,9 @@ nav a:hover:after {
   overflow: hidden;
   width: 100%;
 }
+.project-dialog-preview--cover img {
+  object-fit: cover;
+}
 .project-insights {
   border-top: 1px solid var(--line);
   display: grid;

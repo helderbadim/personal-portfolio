@@ -13,6 +13,7 @@ export interface Project {
   liveUrl?: string;
   previewUrl: string;
   mobilePreviewUrl: string;
+  previewFit?: 'contain' | 'cover';
   sourceUrl?: string;
   technologies: readonly string[];
   title: string;
@@ -35,6 +36,7 @@ export const PROJECTS: readonly Project[] = [
     liveUrl: 'https://helderbadim.github.io/Easy-Task-Management/',
     previewUrl: 'project-easy-task.png',
     mobilePreviewUrl: 'project-easy-task-mobile.png',
+    previewFit: 'cover',
     sourceUrl: 'https://github.com/helderbadim/Easy-Task-Management',
   },
   {

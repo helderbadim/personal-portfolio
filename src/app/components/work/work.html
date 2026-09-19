@@ -32,7 +32,8 @@
     <section #projectDialog id="project-dialog" class="project-dialog" role="dialog" aria-modal="true"
       aria-labelledby="project-dialog-title" aria-describedby="project-dialog-description" tabindex="-1"
       (click)="$event.stopPropagation()" (keydown.tab)="trapDialogFocus($event)">
-      <div class="project-dialog-preview">
+      <div class="project-dialog-preview"
+        [class.project-dialog-preview--cover]="project.previewFit === 'cover'">
         <picture>
           <source media="(max-width: 700px)" [srcset]="project.mobilePreviewUrl">
           <img [src]="project.previewUrl" [alt]="project.title + ' project preview'" />
