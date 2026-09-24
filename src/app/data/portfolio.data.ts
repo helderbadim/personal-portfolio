@@ -21,6 +21,25 @@ export interface Project {
 
 export const PROJECTS: readonly Project[] = [
   {
+    title: 'Investment Calculator',
+    description:
+      'An Angular calculator that projects compound investment growth and presents a clear year-by-year breakdown of returns.',
+    built: [
+      'A calculator for initial capital, annual contributions, expected return, and investment duration.',
+      'A year-by-year results table showing invested capital, annual interest, total interest, and portfolio value.',
+    ],
+    learned: [
+      'How to share reactive calculation state through an Angular service, signals, and computed values.',
+      'How to model compound-growth calculations and connect template-driven forms to reusable components.',
+    ],
+    technologies: ['Angular', 'TypeScript', 'Signals', 'CSS'],
+    liveUrl: 'https://helderbadim.github.io/investment_calculator/',
+    previewUrl: 'project-investment-calculator.png',
+    mobilePreviewUrl: 'project-investment-calculator-mobile.png',
+    previewFit: 'cover',
+    sourceUrl: 'https://github.com/helderbadim/investment_calculator',
+  },
+  {
     title: 'Easy Task Management',
     description:
       'An Angular task-management dashboard for organising work by user, creating tasks, and keeping progress available between visits.',
