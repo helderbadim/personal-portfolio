@@ -9,6 +9,7 @@ export interface Experience {
 export interface Project {
   built: readonly string[];
   description: string;
+  dialogLayout?: 'wide-preview';
   learned: readonly string[];
   liveUrl?: string;
   previewUrl: string;
@@ -24,6 +25,7 @@ export const PROJECTS: readonly Project[] = [
     title: 'TaskForge',
     description:
       'A full-stack collaborative project manager with invitation-based membership, drag-and-drop Kanban workflows, and real-time task updates.',
+    dialogLayout: 'wide-preview',
     built: [
       'Projects and task workflows with invitation-based membership, assignments, priorities, due dates, and Angular CDK drag-and-drop.',
       'A NestJS API with MongoDB transactions and authenticated Socket.IO rooms, while REST remains authoritative for reconnect recovery.',

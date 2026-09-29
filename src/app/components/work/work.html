@@ -10,13 +10,10 @@
     (keydown.enter)="openProject(featuredProject)"
     (keydown.space)="$event.preventDefault(); openProject(featuredProject)">
     <div class="project-featured-preview" aria-hidden="true">
-      <picture>
-        <source media="(max-width: 700px)" [srcset]="featuredProject.mobilePreviewUrl">
-        <img [src]="featuredProject.previewUrl" alt="" />
-      </picture>
+      <img [src]="featuredProject.mobilePreviewUrl" alt="" />
     </div>
     <div class="project-featured-copy">
-      <span class="project-number">01 · Featured full-stack project</span>
+      <span class="project-number">01 / Featured full-stack project</span>
       <h3>{{ featuredProject.title }}</h3>
       <p>{{ featuredProject.description }}</p>
       <ul class="project-card-technologies" aria-label="Technologies">@for (technology of featuredProject.technologies; track technology) { <li>{{ technology }}</li> }</ul>
@@ -59,6 +56,7 @@
   @if (selectedProject(); as project) {
   <div class="project-dialog-backdrop" role="presentation" (click)="closeProject()">
     <section #projectDialog id="project-dialog" class="project-dialog" role="dialog" aria-modal="true"
+      [class.project-dialog--wide-preview]="project.dialogLayout === 'wide-preview'"
       aria-labelledby="project-dialog-title" aria-describedby="project-dialog-description" tabindex="-1"
       (click)="$event.stopPropagation()" (keydown.tab)="trapDialogFocus($event)">
       <div class="project-dialog-preview"
