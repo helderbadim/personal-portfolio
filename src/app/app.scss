@@ -628,7 +628,8 @@ nav a:hover:after {
 }
 .project-dialog--wide-preview {
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
-  height: min(680px, calc(100vh - 48px));
+  height: auto;
+  max-height: calc(100vh - 48px);
   max-width: 1240px;
 }
 .project-dialog-close {
@@ -881,7 +882,7 @@ nav a:hover:after {
 @media (min-width: 901px) {
   .project-dialog--wide-preview .project-dialog-copy {
     display: grid;
-    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto;
     overflow: hidden;
     padding: 32px 38px;
   }
@@ -892,7 +893,6 @@ nav a:hover:after {
     align-content: start;
     gap: 22px;
     margin-top: 22px;
-    overflow-y: auto;
     padding-right: 6px;
     padding-top: 20px;
   }

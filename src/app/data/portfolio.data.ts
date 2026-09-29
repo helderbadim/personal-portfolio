@@ -44,7 +44,7 @@ export const PROJECTS: readonly Project[] = [
     liveUrl: 'https://taskforge-web-helderbadim.onrender.com/',
     previewUrl: 'project-taskforge.png',
     mobilePreviewUrl: 'project-taskforge-mobile.png',
-    previewFit: 'cover',
+    previewFit: 'contain',
   },
   {
     title: 'Investment Calculator',
