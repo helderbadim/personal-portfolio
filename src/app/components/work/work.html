@@ -3,25 +3,54 @@
     <p>Selected projects</p>
     <h2><span class="heading-line">A few things</span><span class="heading-line">I've <em>built.</em></span></h2>
   </div>
+  @if (projects[0]; as featuredProject) {
+  <article class="project-featured" appReveal role="button" tabindex="0" aria-controls="project-dialog"
+    [attr.aria-expanded]="selectedProject()?.title === featuredProject.title"
+    [attr.aria-label]="'Open details for ' + featuredProject.title" (click)="openProject(featuredProject)"
+    (keydown.enter)="openProject(featuredProject)"
+    (keydown.space)="$event.preventDefault(); openProject(featuredProject)">
+    <div class="project-featured-preview" aria-hidden="true">
+      <picture>
+        <source media="(max-width: 700px)" [srcset]="featuredProject.mobilePreviewUrl">
+        <img [src]="featuredProject.previewUrl" alt="" />
+      </picture>
+    </div>
+    <div class="project-featured-copy">
+      <span class="project-number">01 · Featured full-stack project</span>
+      <h3>{{ featuredProject.title }}</h3>
+      <p>{{ featuredProject.description }}</p>
+      <ul class="project-card-technologies" aria-label="Technologies">@for (technology of featuredProject.technologies; track technology) { <li>{{ technology }}</li> }</ul>
+      <div class="project-featured-footer">
+        <span class="project-open-hint" aria-hidden="true">Explore details <span>&rarr;</span></span>
+        <div class="project-links">
+          @if (featuredProject.liveUrl) { <a [href]="featuredProject.liveUrl" target="_blank" rel="noreferrer"
+            (click)="$event.stopPropagation()">View project <span>&nearr;</span></a> }
+          @if (featuredProject.sourceUrl) { <a [href]="featuredProject.sourceUrl" target="_blank" rel="noreferrer"
+            (click)="$event.stopPropagation()">View source <span>&nearr;</span></a> }
+        </div>
+      </div>
+    </div>
+  </article>
+  }
   <div class="projects-grid">
-    @for (project of projects; track project.title) {
+    @for (project of projects.slice(1); track project.title) {
     <article class="project-card" appReveal role="button" tabindex="0" aria-controls="project-dialog"
       [attr.aria-expanded]="selectedProject()?.title === project.title"
       [attr.aria-label]="'Open details for ' + project.title" (click)="openProject(project)"
       (keydown.enter)="openProject(project)" (keydown.space)="$event.preventDefault(); openProject(project)">
       <div class="project-details">
-        <span class="project-number">0{{ $index + 1 }}</span>
+        <span class="project-number">0{{ $index + 2 }}</span>
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
         <ul class="project-card-technologies" aria-label="Technologies">@for (technology of project.technologies; track technology) { <li>{{ technology }}</li> }</ul>
         <div class="project-card-footer">
           <span class="project-open-hint" aria-hidden="true">Open details <span>&rarr;</span></span>
-        <div class="project-links">
-          @if (project.liveUrl) { <a [href]="project.liveUrl" target="_blank" rel="noreferrer"
-            (click)="$event.stopPropagation()">View project <span>&nearr;</span></a> }
-          @if (project.sourceUrl) { <a [href]="project.sourceUrl" target="_blank" rel="noreferrer"
-            (click)="$event.stopPropagation()">View source <span>&nearr;</span></a> }
-        </div>
+          <div class="project-links">
+            @if (project.liveUrl) { <a [href]="project.liveUrl" target="_blank" rel="noreferrer"
+              (click)="$event.stopPropagation()">View project <span>&nearr;</span></a> }
+            @if (project.sourceUrl) { <a [href]="project.sourceUrl" target="_blank" rel="noreferrer"
+              (click)="$event.stopPropagation()">View source <span>&nearr;</span></a> }
+          </div>
         </div>
       </div>
     </article>
