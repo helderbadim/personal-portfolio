@@ -470,8 +470,9 @@ nav a:hover:after {
 .project-featured {
   background: var(--card);
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
-  height: 500px;
+  grid-template-areas: 'copy preview';
+  grid-template-columns: minmax(360px, 0.82fr) minmax(0, 1.18fr);
+  height: 440px;
   overflow: hidden;
   position: relative;
   transition: background 0.25s ease;
@@ -481,50 +482,54 @@ nav a:hover:after {
   outline-offset: -2px;
 }
 .project-featured:hover {
-  background: color-mix(in srgb, var(--accent) 6%, var(--card));
+  background: color-mix(in srgb, var(--accent) 5%, var(--card));
   cursor: pointer;
 }
 .project-featured-preview {
-  border-right: 1px solid var(--line);
-  min-height: 0;
+  align-self: center;
+  aspect-ratio: 2 / 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  grid-area: preview;
+  margin: 28px 28px 28px 0;
   overflow: hidden;
 }
 .project-featured-preview picture,
 .project-featured-preview img {
   display: block;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
   width: 100%;
 }
 .project-featured-copy {
   display: flex;
   flex-direction: column;
-  padding: 44px;
+  grid-area: copy;
+  padding: 40px 36px;
 }
 .project-featured-copy h3 {
-  font-size: clamp(2.5rem, 3.2vw, 3.8rem);
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
   font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-  margin: 38px 0 18px;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin: 34px 0 16px;
 }
 .project-featured-copy > p {
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.65;
   margin: 0;
 }
 .project-featured-copy .project-card-technologies {
-  margin-top: 24px;
+  margin-top: 22px;
 }
 .project-featured-footer {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
   justify-content: space-between;
   margin-top: auto;
-  padding-top: 32px;
+  padding-top: 28px;
 }
 .project-featured-footer .project-open-hint {
   margin-top: 0;
@@ -534,13 +539,14 @@ nav a:hover:after {
 }
 .project-featured .project-links a {
   align-items: center;
-  background: var(--ink);
-  border: 1px solid var(--ink);
-  color: var(--bg);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent);
+  color: var(--ink);
   display: inline-flex;
-  gap: 10px;
-  min-height: 46px;
-  padding: 0 18px;
+  gap: 8px;
+  font-size: var(--font-size-sm);
+  min-height: 40px;
+  padding: 0 14px;
   transition:
     background 0.2s ease,
     border-color 0.2s ease,
@@ -554,8 +560,13 @@ nav a:hover:after {
   transform: translateY(-2px);
 }
 .project-featured .project-links a span {
-  color: inherit;
+  color: var(--accent);
   font-size: var(--font-size-body);
+  transition: transform 0.2s ease;
+}
+.project-featured .project-links a:hover span {
+  color: inherit;
+  transform: translate(2px, -2px);
 }
 .project-card {
   background: var(--card);
@@ -1308,14 +1319,18 @@ footer {
     grid-template-columns: 1fr;
   }
   .project-featured {
+    grid-template-areas:
+      'copy'
+      'preview';
     grid-template-columns: 1fr;
     height: auto;
   }
   .project-featured-preview {
-    aspect-ratio: 16 / 9;
-    border-bottom: 1px solid var(--line);
-    border-right: 0;
-    min-height: 0;
+    aspect-ratio: 2 / 1;
+    margin: 0 32px 32px;
+  }
+  .project-featured-copy {
+    padding: 40px 32px;
   }
   .projects-grid {
     grid-template-columns: 1fr;
@@ -1512,6 +1527,7 @@ footer {
   }
   .project-featured-preview {
     aspect-ratio: 2 / 1;
+    margin: 0 20px 20px;
   }
   .project-featured-copy {
     padding: 30px 20px;
