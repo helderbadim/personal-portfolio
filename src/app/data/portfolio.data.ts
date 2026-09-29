@@ -21,6 +21,24 @@ export interface Project {
 
 export const PROJECTS: readonly Project[] = [
   {
+    title: 'TaskForge',
+    description:
+      'A full-stack collaborative project manager with invitation-based membership, drag-and-drop Kanban workflows, and real-time task updates.',
+    built: [
+      'Projects and task workflows with invitation-based membership, assignments, priorities, due dates, and Angular CDK drag-and-drop.',
+      'A NestJS API with MongoDB transactions and authenticated Socket.IO rooms, while REST remains authoritative for reconnect recovery.',
+    ],
+    learned: [
+      'How to coordinate NgRx state with live WebSocket events without letting client state drift from the backend.',
+      'How to deliver a multilingual, themed full-stack product and protect its critical flows with unit and Playwright tests.',
+    ],
+    technologies: ['Angular', 'NestJS', 'MongoDB', 'Socket.IO', 'NgRx'],
+    liveUrl: 'https://taskforge-web-helderbadim.onrender.com/',
+    previewUrl: 'project-taskforge.png',
+    mobilePreviewUrl: 'project-taskforge-mobile.png',
+    previewFit: 'cover',
+  },
+  {
     title: 'Investment Calculator',
     description:
       'An Angular calculator that projects compound investment growth and presents a clear year-by-year breakdown of returns.',
