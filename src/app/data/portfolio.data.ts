@@ -10,6 +10,7 @@ export interface Project {
   built: readonly string[];
   description: string;
   dialogLayout?: 'wide-preview';
+  highlights?: readonly string[];
   learned: readonly string[];
   liveUrl?: string;
   previewUrl: string;
@@ -33,6 +34,11 @@ export const PROJECTS: readonly Project[] = [
     learned: [
       'How to coordinate NgRx state with live WebSocket events without letting client state drift from the backend.',
       'How to deliver a multilingual, themed full-stack product and protect its critical flows with unit and Playwright tests.',
+    ],
+    highlights: [
+      'Invitation-based project membership with task assignments, priorities, due dates, and Angular CDK drag-and-drop.',
+      'A NestJS and MongoDB API backed by authenticated Socket.IO rooms, with REST recovery after reconnects.',
+      'NgRx state, a multilingual light-and-dark interface, and unit plus Playwright coverage for critical flows.',
     ],
     technologies: ['Angular', 'NestJS', 'MongoDB', 'Socket.IO', 'NgRx'],
     liveUrl: 'https://taskforge-web-helderbadim.onrender.com/',

@@ -13,7 +13,7 @@
       <img [src]="featuredProject.mobilePreviewUrl" alt="" />
     </div>
     <div class="project-featured-copy">
-      <span class="project-number">01 / Featured full-stack project</span>
+      <span class="project-number">01 / Featured project</span>
       <h3>{{ featuredProject.title }}</h3>
       <p>{{ featuredProject.description }}</p>
       <ul class="project-card-technologies" aria-label="Technologies">@for (technology of featuredProject.technologies; track technology) { <li>{{ technology }}</li> }</ul>
@@ -74,6 +74,14 @@
           <p id="project-dialog-description">{{ project.description }}</p>
           <ul class="project-dialog-technologies" aria-label="Technologies">@for (technology of project.technologies; track technology) { <li>{{ technology }}</li> }</ul>
         </div>
+        @if (project.highlights; as highlights) {
+        <div class="project-insights project-insights--highlights">
+          <div>
+            <h4>Project highlights</h4>
+            <ul>@for (item of highlights; track item) { <li>{{ item }}</li> }</ul>
+          </div>
+        </div>
+        } @else {
         <div class="project-insights">
           <div>
             <h4>What I built</h4>
@@ -84,6 +92,7 @@
             <ul>@for (item of project.learned; track item) { <li>{{ item }}</li> }</ul>
           </div>
         </div>
+        }
         <div class="project-dialog-meta">
           <div class="project-links">
             @if (project.liveUrl) { <a [href]="project.liveUrl" target="_blank" rel="noreferrer">View project
