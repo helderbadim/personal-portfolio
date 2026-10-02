@@ -16,6 +16,7 @@ export interface Project {
   previewUrl: string;
   mobilePreviewUrl: string;
   previewFit?: 'contain' | 'cover';
+  previewZoom?: boolean;
   sourceUrl?: string;
   technologies: readonly string[];
   title: string;
@@ -101,6 +102,7 @@ export const PROJECTS: readonly Project[] = [
     previewUrl: 'project-task-manager.png',
     mobilePreviewUrl: 'project-task-manager-mobile.png',
     previewFit: 'cover',
+    previewZoom: true,
     sourceUrl: 'https://github.com/helderbadim/TaskManager',
   },
   {

@@ -848,6 +848,17 @@ nav a:hover:after {
   }
   .project-dialog-copy {
     border-left: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    overflow: hidden;
+  }
+  .project-dialog-copy .project-insights {
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+  .project-dialog-preview--zoom img {
+    transform: scale(2);
+    transform-origin: center top;
   }
   .project-dialog-meta {
     border-top: 1px solid var(--line);
