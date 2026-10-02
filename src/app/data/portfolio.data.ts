@@ -85,6 +85,25 @@ export const PROJECTS: readonly Project[] = [
     sourceUrl: 'https://github.com/helderbadim/Easy-Task-Management',
   },
   {
+    title: 'TaskManager',
+    description:
+      'An Angular task manager for creating work, tracking its status, and filtering the list through reactive shared state.',
+    built: [
+      'A task workflow for adding titles and descriptions, moving work between open, in-progress, and completed states, and filtering by status.',
+      'Standalone Angular components connected through an injectable service, readonly signals, computed state, and shared status options provided by an injection token.',
+    ],
+    learned: [
+      'How Angular services and signals provide a focused source of truth while keeping components small and reactive.',
+      'How dependency injection, reusable providers, and component composition reduce duplicated state and template logic.',
+    ],
+    technologies: ['Angular', 'TypeScript', 'Signals', 'RxJS', 'CSS'],
+    liveUrl: 'https://helderbadim.github.io/TaskManager/',
+    previewUrl: 'project-task-manager.png',
+    mobilePreviewUrl: 'project-task-manager-mobile.png',
+    previewFit: 'cover',
+    sourceUrl: 'https://github.com/helderbadim/TaskManager',
+  },
+  {
     title: 'Bankist Webpage',
     description:
       'A responsive banking landing page that explores layout, motion, and interactive browser behaviour.',
