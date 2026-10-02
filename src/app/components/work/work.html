@@ -60,8 +60,7 @@
       aria-labelledby="project-dialog-title" aria-describedby="project-dialog-description" tabindex="-1"
       (click)="$event.stopPropagation()" (keydown.tab)="trapDialogFocus($event)">
       <div class="project-dialog-preview"
-        [class.project-dialog-preview--cover]="project.previewFit === 'cover'"
-        [class.project-dialog-preview--zoom]="project.previewZoom">
+        [class.project-dialog-preview--cover]="project.previewFit === 'cover'">
         <picture>
           <source media="(max-width: 700px)" [srcset]="project.mobilePreviewUrl">
           <img [src]="project.previewUrl" [alt]="project.title + ' project preview'" />

@@ -16,7 +16,6 @@ export interface Project {
   previewUrl: string;
   mobilePreviewUrl: string;
   previewFit?: 'contain' | 'cover';
-  previewZoom?: boolean;
   sourceUrl?: string;
   technologies: readonly string[];
   title: string;
@@ -88,21 +87,20 @@ export const PROJECTS: readonly Project[] = [
   {
     title: 'TaskManager',
     description:
-      'An Angular task manager for creating work, tracking its status, and filtering the list through reactive shared state.',
+      'An Angular task manager for creating, filtering, and updating tasks through shared reactive state.',
     built: [
-      'A task workflow for adding titles and descriptions, moving work between open, in-progress, and completed states, and filtering by status.',
-      'Standalone Angular components connected through an injectable service, readonly signals, computed state, and shared status options provided by an injection token.',
+      'Task creation, status updates, and filtering for open, in-progress, and completed work.',
+      'Standalone components sharing readonly signal state through an injectable service.',
     ],
     learned: [
-      'How Angular services and signals provide a focused source of truth while keeping components small and reactive.',
-      'How dependency injection, reusable providers, and component composition reduce duplicated state and template logic.',
+      'How services, signals, and computed values keep shared state reactive.',
+      'How injection tokens and reusable providers reduce duplicated UI logic.',
     ],
     technologies: ['Angular', 'TypeScript', 'Signals', 'RxJS', 'CSS'],
     liveUrl: 'https://helderbadim.github.io/TaskManager/',
     previewUrl: 'project-task-manager.png',
     mobilePreviewUrl: 'project-task-manager-mobile.png',
     previewFit: 'cover',
-    previewZoom: true,
     sourceUrl: 'https://github.com/helderbadim/TaskManager',
   },
   {
